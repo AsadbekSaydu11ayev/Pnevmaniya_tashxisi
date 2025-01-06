@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.title("Rasm asosida Pnevmaniya tashxisini qo'yuvchi dastur")
-
+st.text("Ogohlantirish: Rasmlar faqat Pnevmaniyaga oid bo'lishi kerak aks holda dastur noto'g'ri ishlashi mumkin.")
 file = st.file_uploader(label="Rasm yuklash", type=["Jpg", "Png", "Svg","Gif"])
 
 
