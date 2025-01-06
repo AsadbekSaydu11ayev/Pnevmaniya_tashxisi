@@ -1,12 +1,13 @@
 import streamlit as st
 from fastai.vision.all import *
 import pathlib as pth
-pth.PosixPath = pth.WindowsPath
+pl = platform.system()
+if pl == "Linux": pth.WindowsPath = pth.PosixPath
 
 st.title("Mening dasturimga xush kelibsizlar")
 st.text("Made this codes by Asadbek Saydullayev")
 file = st.file_uploader(label="file yuklang")
-model = load_learner("models/pnevmaniya_model.pkl")
+model = load_learner("pnevmaniya_model.pkl")
 if file:
     try:
         pred, pred_id, probs = model.predict(PILImage.create(file))
