@@ -1,23 +1,34 @@
 import streamlit as st
 from fastai.vision.all import *
-import pathlib as pth
-pl = platform.system()
-if pl == "Linux": pth.WindowsPath = pth.PosixPath
+import pathlib, platform
+import plotly.express as px
+plt = platform.system()
+if plt == "Linux": pathlib.WindowsPath = pathlib.PosixPath
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-st.title("Mening dasturimga xush kelibsizlar")
-st.text("Made this codes by Asadbek Saydullayev")
-file = st.file_uploader(label="file yuklang")
-model = load_learner("pnevmaniya_model.pkl")
+st.title("Rasm asosida Pnevmaniya tashxisini qo'yuvchi dastur")
+
+file = st.file_uploader(label="Rasm yuklash", type=["Jpg", "Png", "Svg","Gif"])
+
+
 if file:
     try:
-        pred, pred_id, probs = model.predict(PILImage.create(file))
-        st.text(f"It is {pred}, accuracy: {probs[pred_id] * 100:.1f}%")
-        st.image(PILImage.create(file), width=400)
+        img = PILImage.create(file)
+
+        model = load_learner("pnevmaniya_model.pkl")
+        pred, pred_id, probs = model.predict(img)
+
+        st.success(f"Bashorat: {pred}")
+        st.info(f"Ehtimollik: {probs[pred_id]*100:.1f}%")    
+        st.image(img, width=400)
+
+
+        fig = plt.figure(figsize=(10,4))
+        sns.barplot(x=probs*100, y=model.dls.vocab)
+        plt.xlabel("Ehtimollik")
+        st.pyplot(fig)
+
     except:
-        st.text("Siz noto'g'ri fayl turini kiritdingiz. Iltimos rasm farmatdagi file kiriting.")
-
-
-name = st.text_input(label="write name: ")
-surname = st.text_input(label='write surname: ')
-
-st.text(f"{name} {surname}")
+        st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang")
+    st.text("Ishlab chiqaruvchi: Saydullayev Asadbek")
