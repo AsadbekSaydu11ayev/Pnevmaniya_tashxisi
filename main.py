@@ -14,8 +14,8 @@ st.text("Misol uchun")
 with col1:
     st.image(PILImage.create("person1_bacteria_2.jpeg"), width=100)
 with col2:
-    st.image(PILImage.create("person1_bacteria_4.jpeg"), width=100)
-with col2:
+    st.image(PILImage.create("pperson2_bacteria_4.jpeg"), width=100)
+with col3:
     st.image(PILImage.create("person1_bacteria_12.jpeg"), width=100)
 file = st.file_uploader(label="Rasm yuklash", type=["Jpg", "Png", "Svg","Gif"])
 
