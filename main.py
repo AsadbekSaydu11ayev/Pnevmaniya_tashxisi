@@ -9,6 +9,14 @@ import seaborn as sns
 
 st.title("Rasm asosida Pnevmaniya tashxisini qo'yuvchi dastur")
 st.text("Ogohlantirish: Rasmlar faqat Pnevmaniyaga oid bo'lishi kerak aks holda dastur noto'g'ri ishlashi mumkin.")
+col1, col2, col3 = st.columns(3)
+st.text("Misol uchun")
+with col1
+    st.img("person1_bacteria_2.jpeg", width=100)
+with col2
+    st.img("person1_bacteria_4.jpeg", width=100)
+with col2
+    st.img("person1_bacteria_12.jpeg", width=100)
 file = st.file_uploader(label="Rasm yuklash", type=["Jpg", "Png", "Svg","Gif"])
 
 
