@@ -104,27 +104,4 @@ if file2:
 
     except:
         st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang!")
-    st.text("Ishlab chiqaruvchi: Saydullayev Asadbek")
-
-
-
-if file2:
-    try:
-        img2 = PILImage.create(file2)
-
-        model2 = load_learner("model/kindey_stone.pkl")
-        pred2, pred_id2, probs2 = model2.predict(img2)
-
-        st.success(f"Bashorat: {pred2}")
-        st.info(f"Ehtimollik: {probs2[pred_id2]*100:.1f}%")    
-        st.image(img2, width=400)
-
-
-        fig = plt.figure(figsize=(10,4))
-        sns.barplot(x=probs2*100, y=model2.dls.vocab)
-        plt.xlabel("Ehtimollik")
-        st.pyplot(fig)
-
-    except:
-        st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang!")
     st.text("Ishlab chiqaruvchi: Legion jamoasi")
