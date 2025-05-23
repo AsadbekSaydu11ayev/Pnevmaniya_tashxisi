@@ -20,12 +20,12 @@ with col3:
     
 file = st.file_uploader(label="Rasm yuklash", type=["Jpg", "Png", "Svg","Gif"])
 
-
+model = load_learner("pnevmaniya_model.pkl")
 if file:
     try:
         img = PILImage.create(file)
 
-        model = load_learner("pnevmaniya_model.pkl")
+        # model = load_learner("pnevmaniya_model.pkl")
         pred, pred_id, probs = model.predict(img)
 
 
