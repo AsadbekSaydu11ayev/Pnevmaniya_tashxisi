@@ -25,8 +25,9 @@ if file:
     try:
         img = PILImage.create(file)
 
-        model = load_learner("pnevmaniya_model.pkl")
-        pred, pred_id, probs = model.predict(img)
+        # model = load_learner("pnevmaniya_model.pkl")
+        # pred, pred_id, probs = model.predict(img)
+
 
         # st.success(f"Bashorat: {pred}")
         # st.info(f"Ehtimollik: {probs[pred_id]*100:.1f}%")    
@@ -39,7 +40,7 @@ if file:
         # st.pyplot(fig)
 
     except:
-        st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang!")
+        st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang:)")
     st.text("Ishlab chiqaruvchi: Saydullayev Asadbek")
 
 
