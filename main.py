@@ -25,8 +25,8 @@ if file:
     try:
         img = PILImage.create(file)
 
-        # model = load_learner("pnevmaniya_model.pkl")
-        # pred, pred_id, probs = model.predict(img)
+        model = load_learner("pnevmaniya_model.pkl")
+        pred, pred_id, probs = model.predict(img)
 
 
         # st.success(f"Bashorat: {pred}")
