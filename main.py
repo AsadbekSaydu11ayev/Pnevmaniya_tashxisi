@@ -39,7 +39,7 @@ if file:
         # st.pyplot(fig)
 
     except:
-        st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang")
+        st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang!")
     st.text("Ishlab chiqaruvchi: Saydullayev Asadbek")
 
 
