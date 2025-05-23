@@ -28,15 +28,15 @@ if file:
         model = load_learner("pnevmaniya_model.pkl")
         pred, pred_id, probs = model.predict(img)
 
-        st.success(f"Bashorat: {pred}")
-        st.info(f"Ehtimollik: {probs[pred_id]*100:.1f}%")    
-        st.image(img, width=400)
+        # st.success(f"Bashorat: {pred}")
+        # st.info(f"Ehtimollik: {probs[pred_id]*100:.1f}%")    
+        # st.image(img, width=400)
 
 
-        fig = plt.figure(figsize=(10,4))
-        sns.barplot(x=probs*100, y=model.dls.vocab)
-        plt.xlabel("Ehtimollik")
-        st.pyplot(fig)
+        # fig = plt.figure(figsize=(10,4))
+        # sns.barplot(x=probs*100, y=model.dls.vocab)
+        # plt.xlabel("Ehtimollik")
+        # st.pyplot(fig)
 
     except:
         st.text("Siz rasm yuklamadingiz. Iltimos Rasm yuklang")
